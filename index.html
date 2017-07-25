@@ -33,12 +33,13 @@
         <p><i>POST a new game to the database</i></p>
 
       </section>
-      <section id="read" class="pageDisplay">
+      <section id="read" class="pageDisplay container">
         <p><i>GET the database of all games, or use the box below to choose an id of a single game</i></p>
         <div class="form-group">
-          <label for="sel1">Select list:</label>
-          <select class="form-control" id="sel1">
-
+          <label for="readSel">Select list:</label>
+          <select class="form-control" id="readSel">
+            <option disabled selected>Choose an entry by name</option>
+            <<option value="">ALL</option>
           </select>
         </div>
 
@@ -74,11 +75,18 @@
     <div class="entry">
       {{#each games}}
         <h3>{{name}}</h3>
-        <p>{{developer}}<p>
-        <p>{{directors}}</p>
-        <p>{{year}}</p>
+        <p>developer: {{developer}}<p>
+        <p>director(s): {{directors}}</p>
+        <p>year released: {{year}}</p>
       {{/each}}
     </div>
   </script>
+
+  <script id="readSelectBox" type="text/x-handlebars-template">
+    {{#each numbers}}
+      <option>{{name}}</option>
+    {{/each}}
+  </script>
+
   <script src="assets/javascript/app.js" charset="utf-8"></script>
 </html>
