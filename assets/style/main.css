@@ -1,7 +1,16 @@
-body {
+body  {
   font-family: 'Roboto', sans-serif;
 }
 
-.pageDisplay {
+h2  {
+  text-align: center;
+}
+
+.pageDisplay  {
   display: none;
+  padding: 20px;
+}
+
+.form-control {
+  margin-bottom: 20px;
 }

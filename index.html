@@ -11,10 +11,19 @@
     <link rel="stylesheet" href="/assets/style/main.css">
   </head>
   <body>
-    <header class="page-header">
+
+    <!--Header-->
+
+    <header class="page-header container">
       <h1>Game Time <small>The Video Game Library</small></h1>
     </header>
-    <main>
+
+    <!--Main-->
+
+    <main class="container">
+      <h2><i>Click one of the navigation buttons to access the database</i></h2>
+      <!--Navigational Buttons-->
+
       <div class="btn-group btn-group-justified" role="group" aria-label="...">
         <div class="btn-group" role="group">
           <button id="createbutton" name="create"type="button" class="btn btn-default">Create</button>
@@ -29,50 +38,100 @@
           <button id="deleteButton" name="delete" type="button" class="btn btn-default">Delete</button>
         </div>
       </div>
+
+      <!--Create Page-->
+
       <section id="create" class="pageDisplay">
         <p><i>POST a new game to the database</i></p>
-
+        <form class="form-group" action="index.html">
+          <label for="name">Name of Game: </label>
+          <input class="form-control" type="text" name="name" value="" placeholder="ex. Halo: Combat Evolved">
+          <label for="developer">Developer: </label>
+          <input class="form-control" type="text" name="developer" value="" placeholder="ex. Bungie">
+          <label for="directors">Director or Directors: </label>
+          <input class="form-control" type="text" name="directors" value="" placeholder="ex. Jason Jones">
+          <label for="year">Year of Release:</label>
+          <input class="form-control" type="number" name="year" value="">
+        </form>
+        <button type="button" name="submit">POST</button>
       </section>
-      <section id="read" class="pageDisplay container">
-        <p><i>GET the database of all games, or use the box below to choose an id of a single game</i></p>
+
+      <!--Read Page-->
+
+      <section id="read" class="pageDisplay">
+        <p><i>GET the database of all games, or use the box below to choose a single game</i></p>
         <div class="form-group">
-          <label for="readSel">Select list:</label>
-          <select class="form-control" id="readSel">
-            <option disabled selected>Choose an entry by name</option>
-            <<option value="">ALL</option>
+          <label for="readSel">Game List:</label>
+          <select name="read" class="form-control" id="readSel">
           </select>
+        </div>
+        <div id="readData">
+
+        </div>
+      </section>
+
+      <!--Update Page-->
+
+      <section id="update" class="pageDisplay">
+        <p><i>PUT data into an existing game to update it's contents using the below form box</i></p>
+        <div class="form-group">
+          <label for="readSel">Game List:</label>
+          <select name="update" class="form-control" id="updateSel">
+          </select>
+        </div>
+        <div id="updateData">
+
+        </div>
+      </section>
+
+      <!--Delete Page-->
+
+      <section id="delete" class="pageDisplay">
+        <p><i>DELETE a game from the database using the id box below</i></p>
+        <div class="form-group">
+          <label for="readSel">Game List:</label>
+          <select name="delete" class="form-control" id="deleteSel">
+          </select>
+        </div>
+        <div id="deleteData">
+
         </div>
 
       </section>
-      <section id="update" class="pageDisplay">
-        <p><i>PUT data into an existing game to update it's contents using the below form box</i></p>
 
-      </section>
-      <section id="delete" class="pageDisplay">
-        <p><i>DELETE a game from the database using the id box below</i></p>
-
-      </section>
     </main>
+
+    <!--Footer-->
+
     <footer>
-      <div class="panel panel-default">
+      <div class="panel panel-default container">
         <div class="panel-body">
           <small>&copy; 2017 HexDrum Denver, CO</small>
         </div>
       </div>
     </footer>
   </body>
+
+  <!--Jquery-->
+
   <script
     src="https://code.jquery.com/jquery-3.2.1.js"
     integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
     crossorigin="anonymous"></script>
+
+  <!--Bootstrap-->
+
   <script
     src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
     crossorigin="anonymous"></script>
+
+  <!--Handlebars-->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
 
   <script id="database" type="text/x-handlebars-template">
-    <div class="entry">
+    <div>
       {{#each games}}
         <h3>{{name}}</h3>
         <p>developer: {{developer}}<p>
@@ -82,11 +141,15 @@
     </div>
   </script>
 
-  <script id="readSelectBox" type="text/x-handlebars-template">
+  <script id="selectBoxes" type="text/x-handlebars-template">
     {{#each numbers}}
-      <option>{{name}}</option>
+      <option value="{{id}}">{{name}} {{../game_name}}</option>
     {{/each}}
   </script>
 
+  <!--local Applications-->
+  <script src="assets/javascript/update.js" charset="utf-8"></script>
+  <script src="assets/javascript/delete.js" charset="utf-8"></script>
+  <script src="assets/javascript/read.js" charset="utf-8"></script>
   <script src="assets/javascript/app.js" charset="utf-8"></script>
 </html>
