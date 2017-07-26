@@ -13,6 +13,8 @@ $(document).ready(function(){
   $('#deleteSel').change(deleteShowSingleGame);
   $('#updateSel').change(updateShowSingleGame);
 
+  $.post(url, {}).then(data => console.log(data);)
+  $.put(`${url}/1`, {}).then(data => console.log(data);)
 });
 
 function selectBoxes(data) {

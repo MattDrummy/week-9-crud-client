@@ -1,3 +1,5 @@
+const url = 'https://nameless-woodland-75573.herokuapp.com/api/v1/games'
+
 function updateShowDatabase(data) {
   let source = $("#database").html();
   let template = Handlebars.compile(source);
@@ -7,6 +9,6 @@ function updateShowDatabase(data) {
 
 function updateShowSingleGame(event) {
   let id = $('#updateSel').val();
-  $.get(`https://nameless-woodland-75573.herokuapp.com/api/v1/games/${id}`)
+  $.get(`${url}/${id}`)
     .then(updateShowDatabase)
 }

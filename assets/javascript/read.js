@@ -1,3 +1,4 @@
+const url = `https://nameless-woodland-75573.herokuapp.com/api/v1/games/`
 function readShowDatabase(data) {
   let source = $("#database").html();
   let template = Handlebars.compile(source);
@@ -8,10 +9,10 @@ function readShowDatabase(data) {
 function readShowSingleGame(event) {
   let id = $('#readSel').val();
   if (id === 'all') {
-    $.get(`https://nameless-woodland-75573.herokuapp.com/api/v1/games/`)
+    $.get(url)
       .then(readShowDatabase)
   } else {
-    $.get(`https://nameless-woodland-75573.herokuapp.com/api/v1/games/${id}`)
+    $.get(`${url}/${id}`)
       .then(readShowDatabase)
   }
 }
