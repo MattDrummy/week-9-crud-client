@@ -26,16 +26,16 @@
 
       <div class="btn-group btn-group-justified" role="group" aria-label="...">
         <div class="btn-group" role="group">
-          <button id="createbutton" name="create" type="button" class="btn btn-default">Create</button>
+          <button name="create" type="button" class="btn btn-default">Create</button>
         </div>
         <div class="btn-group" role="group">
-          <button id="readButton" name="read" type="button" class="btn btn-default">Read</button>
+          <button name="read" type="button" class="btn btn-default">Read</button>
         </div>
         <div class="btn-group" role="group">
-          <button id="updateButton" name="update" type="button" class="btn btn-default">Update</button>
+          <button name="update" type="button" class="btn btn-default">Update</button>
         </div>
         <div class="btn-group" role="group">
-          <button id="deleteButton" name="delete" type="button" class="btn btn-default">Delete</button>
+          <button name="delete" type="button" class="btn btn-default">Delete</button>
         </div>
       </div>
 
@@ -43,17 +43,20 @@
 
       <section id="create" class="pageDisplay">
         <p><i>POST a new game to the database</i></p>
-        <form class="form-group" action="index.html">
+        <form class="form-group">
           <label for="name">Name of Game: </label>
           <input class="form-control" type="text" name="name" value="" placeholder="ex. Halo: Combat Evolved">
+          <label for="year">Year of Release:</label>
+          <input class="form-control" type="number" name="year" value="" placeholder="ex. 2001">
           <label for="developer">Developer: </label>
           <input class="form-control" type="text" name="developer" value="" placeholder="ex. Bungie">
           <label for="directors">Director or Directors: </label>
           <input class="form-control" type="text" name="directors" value="" placeholder="ex. Jason Jones">
-          <label for="year">Year of Release:</label>
-          <input class="form-control" type="number" name="year" value="">
+          <button id="postButton" type="submit" name="post">POST</button>
         </form>
-        <button type="button" name="submit">POST</button>
+        <div id="createData">
+
+        </div>
       </section>
 
       <!--Read Page-->
@@ -79,6 +82,9 @@
           <select name="update" class="form-control" id="updateSel">
           </select>
         </div>
+        <div id="updateForm">
+
+        </div>
         <div id="updateData">
 
         </div>
@@ -96,7 +102,6 @@
         <div id="deleteData">
 
         </div>
-
       </section>
 
     </main>
@@ -143,13 +148,53 @@
 
   <script id="selectBoxes" type="text/x-handlebars-template">
     {{#each numbers}}
-      <option value="{{id}}">{{name}} {{../game_name}}</option>
+      <option value="{{id}}">{{name}}</option>
     {{/each}}
   </script>
 
+  <script id="deletedDatabase" type="text/x-handlebars-template">
+    <div>
+      {{#each games}}
+        <h3>{{name}}</h3>
+        <p>developer: {{developer}}<p>
+        <p>director(s): {{directors}}</p>
+        <p>year released: {{year}}</p>
+        <p>Deleted: {{deleted}}</p>
+      {{/each}}
+    </div>
+  </script>
+
+  <script id="deleteThisData" type="text/x-handlebars-template">
+    <div>
+      {{#each games}}
+        <h3>{{name}}</h3>
+        <p>developer: {{developer}}<p>
+        <p>director(s): {{directors}}</p>
+        <p>year released: {{year}}</p>
+        <button id="deleteButton" type="button" name="delete">DELETE</button>
+      {{/each}}
+    </div>
+  </script>
+
+  <script id="updateBox" type="text/x-handlebars-template">
+    {{#each games}}
+      <form class="form-group">
+        <label for="name">Name of Game: </label>
+        <input class="form-control" type="text" name="name" value="{{name}}">
+        <label for="year">Year of Release:</label>
+        <input class="form-control" type="number" name="year" value="{{year}}">
+        <label for="developer">Developer: </label>
+        <input class="form-control" type="text" name="developer" value="{{developer}}">
+        <label for="directors">Director or Directors: </label>
+        <input class="form-control" type="text" name="directors" value="{{directors}}">
+        <button id="putButton" type="button" name="put">PUT</button>
+      </form>
+    {{/each}}
+  </script>
   <!--local Applications-->
   <script src="assets/javascript/app.js" charset="utf-8"></script>
+  <script src="assets/javascript/create.js" charset="utf-8"></script>
+  <script src="assets/javascript/read.js" charset="utf-8"></script>
   <script src="assets/javascript/update.js" charset="utf-8"></script>
   <script src="assets/javascript/delete.js" charset="utf-8"></script>
-  <script src="assets/javascript/read.js" charset="utf-8"></script>
 </html>

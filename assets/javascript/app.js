@@ -1,20 +1,21 @@
 $(document).ready(function(){
-  const url = 'https://nameless-woodland-75573.herokuapp.com/api/v1/games'
-
   $('.btn').click(function(event){
     $('.pageDisplay').css('display', 'none');
     $.get(url).then(selectBoxes)
     $('#readData').empty();
     $('#deleteData').empty();
     $('#updateData').empty();
+    $('#updateForm').empty();
+    $('#createData').empty();
     $(`#${this.name}`).css('display', 'block');
   })
   $('#readSel').change(readShowSingleGame);
   $('#deleteSel').change(deleteShowSingleGame);
   $('#updateSel').change(updateShowSingleGame);
-
-  
+  $('#postButton').click(createGameData);
 });
+
+var url = 'https://nameless-woodland-75573.herokuapp.com/api/v1/games'
 
 function selectBoxes(data) {
   let source = $("#selectBoxes").html();
