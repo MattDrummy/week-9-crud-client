@@ -1,4 +1,3 @@
-const url = 'https://nameless-woodland-75573.herokuapp.com/api/v1/games'
 
 function updateShowDatabase(data) {
   let source = $("#database").html();
@@ -9,6 +8,11 @@ function updateShowDatabase(data) {
 
 function updateShowSingleGame(event) {
   let id = $('#updateSel').val();
-  $.get(`${url}/${id}`)
-    .then(updateShowDatabase)
+  if (id === 'all') {
+    $.get(url)
+      .then(updateShowDatabase);
+  } else {
+    $.get(`${url}/${id}`)
+      .then(updateShowDatabase);
+  }
 }
