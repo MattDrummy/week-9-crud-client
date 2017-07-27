@@ -15,3 +15,9 @@ function readShowSingleGame(event) {
       .then(readShowDatabase)
   }
 }
+
+function searchData(event){
+  event.preventDefault();
+  $.get(`${url}?search=${$('#searchInput').val()}`)
+    .then(readShowDatabase)
+}

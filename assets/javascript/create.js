@@ -10,9 +10,17 @@ function createGameData(event) {
   }
   $.post(url, game)
     .then((data) => {
-      let source = $("#database").html();
-      let template = Handlebars.compile(source);
-      let html = template({games: data});
-      $('#createData').empty().append(html);
+      console.log(data);
+      if (data.message) {
+        let source = $('#errorMessage').html();
+        let template = Handlebars.compile(source);
+        let html = template({message: data.message})
+        $('#createData').empty().append(html);
+      } else {
+        let source = $("#database").html();
+        let template = Handlebars.compile(source);
+        let html = template({games: data});
+        $('#createData').empty().append(html);
+      }
     })
 }

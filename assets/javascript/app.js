@@ -13,9 +13,12 @@ $(document).ready(function(){
   $('#deleteSel').change(deleteShowSingleGame);
   $('#updateSel').change(updateShowSingleGame);
   $('#postButton').click(createGameData);
+  $('#readSearch').submit(searchData);
+  // $('#searchButton').click(searchData);
 });
 
-var url = 'https://nameless-woodland-75573.herokuapp.com/api/v1/games'
+// const url = 'https://nameless-woodland-75573.herokuapp.com/api/v1/games'
+const url = 'http://localhost:8080/api/v1/games'
 
 function selectBoxes(data) {
   let source = $("#selectBoxes").html();

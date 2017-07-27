@@ -3,6 +3,7 @@ function updateShowDatabase(data) {
   let template = Handlebars.compile(source);
   let html = template({games: data});
   $('#updateForm').empty().append(html);
+  $('#updateData').empty();
   $('#putButton').click(updateGameData);
 }
 

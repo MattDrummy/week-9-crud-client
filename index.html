@@ -61,12 +61,19 @@
 
       <!--Read Page-->
 
+
       <section id="read" class="pageDisplay">
         <p><i>GET the database of all games, or use the box below to choose a single game</i></p>
         <div class="form-group">
           <label for="readSel">Game List:</label>
           <select name="read" class="form-control" id="readSel">
           </select>
+          <form id="readSearch" class="form-group" action="#" method="get">
+            <label class="form-control" for="search">Search:</label>
+            <input id="searchInput"class="form-control" type="text" name="search" value="" placeholder="Enter your search here">
+            <input type="submit" name="searchButton" value="SEARCH">
+          </form>
+          <!-- <button id="searchButton" type="submit" name="button">SEARCH</button> -->
         </div>
         <div id="readData">
 
@@ -190,6 +197,10 @@
         <button id="putButton" type="button" name="put">PUT</button>
       </form>
     {{/each}}
+  </script>
+
+  <script id="errorMessage" type="text/x-handlebars-template">
+    <p>ERROR: {{message}}
   </script>
   <!--local Applications-->
   <script src="assets/javascript/app.js" charset="utf-8"></script>
