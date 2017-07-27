@@ -4,7 +4,7 @@ function createGameData(event) {
   let inputs = form.getElementsByTagName('input');
   let game = {
     name: inputs[0].value,
-    year: inputs[1].value,
+    year: parseInt(inputs[1].value),
     developer: inputs[2].value,
     directors: inputs[3].value
   }
