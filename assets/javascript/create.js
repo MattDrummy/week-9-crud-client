@@ -8,6 +8,7 @@ function createGameData(event) {
     developer: inputs[2].value,
     directors: inputs[3].value
   }
+  console.log(game);
   $.post(url, game)
     .then((data) => {
       console.log(data);
