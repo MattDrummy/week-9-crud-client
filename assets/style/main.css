@@ -14,3 +14,22 @@ h2  {
 .form-control {
   margin-bottom: 20px;
 }
+
+h1 > small {
+  display: none;
+}
+
+h1 {
+  text-align: center;
+}
+
+@media only screen and (min-width: 480px) {
+
+h1 > small {
+  display: inline;
+}
+
+h1 {
+  text-align: left;
+}
+}

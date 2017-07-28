@@ -14,7 +14,6 @@ $(document).ready(function(){
   $('#updateSel').change(updateShowSingleGame);
   $('#postButton').click(createGameData);
   $('#readSearch').submit(searchData);
-  // $('#searchButton').click(searchData);
 });
 
 const url = 'https://nameless-woodland-75573.herokuapp.com/api/v1/games'
